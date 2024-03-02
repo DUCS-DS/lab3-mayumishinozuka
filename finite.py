@@ -3,34 +3,47 @@ from llist import LList, Node, append
 
 def length(lst):
     """return the length of a finite linked list"""
-    count = 0 
-    current = lst.head
-    while current:
-        count += 1
-        current = current.next
-    return count
-
+    count = 0
+    if lst.head: 
+        node = lst.head
+        count = 1
+        while node.next:
+            count += 1
+            node = node.next  
+    else:
+        count = 0
+    print (count) 
 
 def llprint(lst):
     """print a finite linked list"""
     current = lst.head
     while current:
-        print(current.value, end=" ")
+        print(current.data, end = " ")
         current = current.next
     print()
 
+    print("Linked List:")
+    llprint(llist)
 
 if __name__ == "__main__":
-   
-    values = [1,2,4,8,16,32,64,128,256,512]
-    lst = LList()
-    for value in values:
-        append(lst, Node(value))
 
-    print(length(lst))
+    llist = LList()
+    append(llist, Node(1))
+    append(llist,Node(2))
+    append(llist,Node(4))
+    append(llist,Node(8))
+    append(llist,Node(16))
+    append(llist,Node(32))
+    append(llist,Node(64))
+    append(llist,Node(128))
+    append(llist,Node(256))
+    append(llist,Node(512))
 
-    llprint(lst)
+    
+    
 
+from genfinite import lst
+print("Length of linked list is", length(llist))
  
 
 
